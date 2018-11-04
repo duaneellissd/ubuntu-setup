@@ -1,0 +1,12 @@
+# Nothing special
+pyserial
+numpy
+pexpect
+pexpect_serial
+matplotlib
+sounddevice
+setuptools
+virtualenv
+requests
+requests-toolbelt
+
