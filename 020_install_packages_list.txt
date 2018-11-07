@@ -14,6 +14,7 @@ cmake
 uuid-dev
 net-tools
 tree
+mercurial
 sysvbanner
 libtool
 xterm
@@ -40,4 +41,6 @@ python-dev
 python3-dev
 swig
 
+
+universalindentgui
 
