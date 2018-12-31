@@ -41,6 +41,8 @@ python-dev
 python3-dev
 swig
 
+dos2unix
+moreutils
 
 universalindentgui
 
