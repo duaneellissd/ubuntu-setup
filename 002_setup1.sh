@@ -15,4 +15,5 @@ sudo pip install --upgrade pip
 sudo pip install --upgrade virtualenv 
 
 
+sudo apt-get install -y vim-gtk3
 sudo apt-get install -y vim-gtk3-py2

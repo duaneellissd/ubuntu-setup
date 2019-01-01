@@ -46,3 +46,7 @@ moreutils
 
 universalindentgui
 
+#openjdk-8-jdk
+default-jdk
+
+clang-format
