@@ -1,5 +1,8 @@
 #! /bin/sh
 
+# we need this installed
+sudo apt-get install -y python3-pip
+
 app_list=`date +apt_packages_installed_%Y%m%d_%H%M%S.txt`
 pip2_list=`date +pip2_packages_installed_%Y%m%d_%H%M%S.txt`
 pip3_list=`date +pip3_packages_installed_%Y%m%d_%H%M%S.txt`
