@@ -38,12 +38,11 @@ Requried
   
 9)  For VM machines ...  I also do this:
 
-      On windows, create a directory:  c:\linux
-      You could put it in c:\users\yourname\linux
+   On windows, create a directory:  c:\linux
+   You could put it in c:\users\yourname\linux
       
-   I then also create a SHARED FOLDER on from Linux to Windows
-   I make all Virtual machines use the SAME folder 
-   It's simpler that way.
+   I  also create a SHARED FOLDER on from Linux to Windows
+   I make all Virtual machines use the SAME folder. It's simpler that way.
 
 10) By some means - get this REPO onto your Ubuntu box
 
