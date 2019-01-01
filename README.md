@@ -3,13 +3,14 @@ scripts for configuring a ubuntu machine they way I like it setup
 generally the use case is:  Embedded (ARM CortexM3) SW development, Python, Etc.
 
 Requried 
-    assuming vm machine running on windows 10
-    Vmware player
-    ubuntu 18 iso image
+* assuming vm machine running on windows 10
+* Vmware player (Virtualbox also works, requires a few more steps, ie: manually install extensions)
+* ubuntu 18 iso image
  
- Should work(not tried yet)
-    MAC running Parallels
+Should work(not tried yet)
+* MAC running Parallels
   
+**STEPS**
 
 1) Click Create new VM
 
@@ -58,5 +59,19 @@ Requried
 
    Option 3: You'll find a way.
    
+11) For each script - in numeric order
+
+Generally, always use:   
+
+    bash ./SOMENAME.sh
+    python ./SOMENAME.py 
+    
+Before exeucting a script:
+
+* Review the script - some scripts have security implications that may be wrong for you.
+* Generally I setup Virtual Machines on a laptop, and the laptop has various firewalls in place.
+* If your environment is different the settings I configure are probably not appropriate.
+* Don't come crying to me when somebody steals your beer... or passwords.
    
+     
   
