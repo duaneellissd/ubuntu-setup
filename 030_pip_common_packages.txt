@@ -9,4 +9,4 @@ setuptools
 virtualenv
 requests
 requests-toolbelt
-
+GitPython
