@@ -1,6 +1,10 @@
 #! /bin/bash
 
-if [ -d /opt/tomcat ]
+HERE=`pwd`
+
+TOMCAT_INSTALL_ROOT_DIR=${TOMCAT_INSTALL_DIR}
+
+if [ -d ${TOMCAT_INSTALL_ROOT_DIR} ]
 then
     echo "========================================"
     echo "TOMCAT seems to be installed - this script cannot be run a 2nd time"
@@ -15,16 +19,18 @@ fi
 
 # NOTE somethings (java, ctags) are installed by other means earlier
 
-sudo useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat
+sudo useradd -r -m -U -d ${TOMCAT_INSTALL_ROOT_DIR} -s /bin/false tomcat
 
 
 wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz -P /tmp
 
-sudo ln -s /opt/tomcat/apache-tomcat-9.0.14 /opt/tomcat/latest
+TOMCAT_LATEST=${TOMCAT_LATEST}
 
-sudo chown -RH tomcat: /opt/tomcat/latest
+sudo ln -s ${TOMCAT_INSTALL_ROOT_DIR}/apache-tomcat-9.0.14 ${TOMCAT_LATEST}
 
-sudo chmod o+x /opt/tomcat/latest/bin/
+sudo chown -RH tomcat.tomcat ${TOMCAT_LATEST}
+
+sudo chmod o+x ${TOMCAT_LATEST}/bin/
 
 sudo cp ./misc_files/ubuntu18_tomcat_service /etc/systemd/system/tomcat.service
 
@@ -34,19 +40,32 @@ sudo systemctl start tomcat
 
 sudo systemctl enable tomcat
 
-cd misc-files
+LOGDIR=${TOMCAT_LATEST}/logs
+
+if [ ! -d ${LOGDIR} ]
+then
+	mkdir -p ${LOGDIR}
+fi
+sudo chown -R tomcat.tomcat ${LOGDIR}
+# make the logdir enterable
+sudo chmod  a+x ${LOGDIR}
+sudo chmod -R a+r ${LOGDIR}
+
+
+cd ${HERE}/misc-files
 
 #
 # this installs with username: "admin", password: "password"
 #
 F=_opt_tomcat_latest_webapps_manager_META-INF_context.xml
-T=/opt/tomcat/latest/webapps/manager/META-INF/context.xml
+T=${TOMCAT_LATEST}/webapps/manager/META-INF/context.xml
 sudo cp $F $T
 
 # this installs with username: "admin", password: "password"
 F=_opt_tomcat_latest_webapps_host-manager_META-INF_context.xml
-T=/opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
+T=${TOMCAT_LATEST}/webapps/host-manager/META-INF/context.xml
 sudo cp $F $T
 
 cd ..
 echo "DONE"
+

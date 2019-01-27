@@ -60,3 +60,4 @@ sudo systemctl start tomcat
 sudo mkdir -m 777 -p /var/opengrok/src/
 sudo mkdir -m 777 -p /var/opengrok/etc/
 sudo mkdir -m 777 -p /var/opengrok/data/
+
