@@ -51,3 +51,5 @@ default-jdk
 
 clang-format
 dfu-util
+minicom
+
